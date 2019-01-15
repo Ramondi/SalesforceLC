@@ -1,3 +1,5 @@
 # Salesforce Lightning Components
 
-## Component 1: Dependent Picklists in Lightning component
+<ol>
+  <li><a href="/SalesforceLC/tree/master/DependentPicklist">Dependent Picklist</a></li>
+</ol>
