@@ -1,0 +1,41 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickActionWithoutHeader"
+                access="global"
+                controller="VA_dependentPicklist_UpdateCtrl">
+    <!-- call doInit function on component load -->  
+    <aura:handler name="init" value="this" action="{!c.doInit}"/>
+    <!-- aura attributes-->  
+    <aura:attribute name="listControllingValues" type="list" default="[]" description="to store controller field values"/>
+    <aura:attribute name="listDependingValues" type="list" default="['--- None ---']" description="to store dependent field values"/>
+    <aura:attribute name="depnedentFieldMap" type="map" description="map to store dependent values with controlling value"/>
+    <aura:attribute name="bDisabledDependentFld" type="boolean" default="true"/> 
+    
+    <aura:attribute name="objDetail" type="case" default="{'sobjectType' : 'case'}"/>
+    <aura:attribute name="controllingFieldAPI" type="string" default="Type" description="store field API name of Controller field"/>
+    <aura:attribute name="dependingFieldAPI" type="string" default="Subtype__c" description="store field API name of dependent field"/>
+	<aura:attribute name="rtName" type="string" default="Inquiry" description="store recordtype name of Inquiry cases"/>
+  <div class="Create Contact">
+        <lightning:card iconName="action:new_case" title="New Inquiry">
+		<lightning:layoutItem size="12" padding="around-small">    
+			<lightning:select name="controllerFld"
+								value="{!v.objDetail.Type}"
+								label="Type"
+								onchange="{!c.onControllerFieldChange}">
+				<aura:iteration items="{!v.listControllingValues}" var="val">
+					<option value="{!val}">{!val}</option>
+				</aura:iteration>
+			</lightning:select>
+		</lightning:layoutItem>
+    
+		<lightning:layoutItem size="12" padding="around-small">
+			<lightning:select name="dependentFld"
+								value="{!v.objDetail.Subtype__c}"
+								label="Subtype"
+								disabled="{!v.bDisabledDependentFld}">
+				<aura:iteration items="{!v.listDependingValues}" var="val">
+					<option value="{!val}">{!val}</option>
+				</aura:iteration>
+			</lightning:select>
+		</lightning:layoutItem>
+	</lightning:card>
+    </div>
+</aura:component>
