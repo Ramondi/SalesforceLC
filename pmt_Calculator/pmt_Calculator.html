@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Annuity Payment calculator" icon-name="standard:buyer_account">
+        <div class="slds-p-around_small">
+            <div class="slds-p-around-small">Please, enter the interest rate, periods and monthly payment or net loan to
+                calculate the needed amount.</div>
+            <lightning-input label="Interest rate" type="number" name="interest" value={interest}
+                onchange={onInputChangeHandler} step=".01" formatter="percent-fixed" placeholder="4,50" required>
+            </lightning-input><br>
+            <lightning-input label="Periods in months" type="number" name="periods" placeholder="720" value={periods}
+                onchange={onInputChangeHandler} step="1" required></lightning-input><br>
+            <lightning-input label="Net loan" type="number" name="netloan" placeholder="10000" value={netloan}
+                onchange={onInputChangeHandler} step=".01" formatter="currency"></lightning-input><br>
+            <lightning-input label="Monthly payment" type="number" name="monthly" value={monthly}
+                onchange={onInputChangeHandler} step=".01" formatter="currency" placeholder="450"></lightning-input><br>
+            <lightning-layout horizontal-align="space">
+                <lightning-layout-item padding="around-small">
+                    <lightning-button label="Get Monthly Payment" variant="Brand" onclick={onButtonCLick}>
+                    </lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small">
+                    <lightning-button label="Get Net Loan" variant="Brand" onclick={onButtonCLick}>
+                    </lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>
