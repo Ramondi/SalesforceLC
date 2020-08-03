@@ -2,6 +2,7 @@
 
 <ol>
   <li><a href="../../../SalesforceLC/tree/master/DependentPicklist">Dependent Picklist</a></li>
+  <li><a href="../../../SalesforceLC/tree/master/pmt_Calculator">PMT Calculator</a></li>
 </ol>
 
 <span style="font-size:10px"><i>All those components have been created by me but using code that may have been posted by other developers on public forums/gits.
